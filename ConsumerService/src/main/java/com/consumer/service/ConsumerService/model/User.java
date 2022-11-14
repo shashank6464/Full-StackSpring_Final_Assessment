@@ -25,4 +25,5 @@ public class User {
     private String password_confirm;
 
     private String email;
+
 }

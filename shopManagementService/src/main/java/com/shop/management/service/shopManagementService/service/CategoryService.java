@@ -22,10 +22,12 @@ public class CategoryService {
     @Autowired
     private CategoryRepository repository;
 
+    private ProductService productService;
+
 
 
     //--------------------------------------------------------------//
-                    // Short useful services //
+    // Short useful services //
 
     public List<Category> getCategories(){
         return repository.findAll();
@@ -68,6 +70,7 @@ public class CategoryService {
     }
 
     public String deleteCategoryById(int category_id){
+
         repository.deleteById(category_id);
 
         return "{\"message\" : \"Successfully DELETED this category !!\"}";
@@ -80,7 +83,7 @@ public class CategoryService {
     public List<Category> getCategoryByField(String field, String value){
 
 
-        if(field.equals("category_id")){
+        if(field.equals("id")){
             Optional<Category> category;
             category = repository.findById(Integer.parseInt(value));
             if(category.isPresent()) return new ArrayList<>(Arrays.asList(category.get()));

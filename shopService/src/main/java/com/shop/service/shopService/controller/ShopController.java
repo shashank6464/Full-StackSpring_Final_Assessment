@@ -30,11 +30,13 @@ public class ShopController {
     }
 
 
+    //get all products
     @GetMapping("/products")
     public List<Product> getProducts(){
         return productConsumer.getProducts();
     }
 
+    //get all categories
     @GetMapping("/categories")
     public List<Category> getCategories(){
         return categoryConsumer.getCategories();

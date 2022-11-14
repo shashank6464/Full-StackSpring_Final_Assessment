@@ -20,6 +20,7 @@ public class ConsumerController {
     @Autowired
     TokenConsumer tokenConsumer;
 
+    //get all users
     @GetMapping("/get-users")
     List<User> getUsers(){
         System.out.println(adminConsumer.getClass().getSimpleName());
@@ -27,6 +28,7 @@ public class ConsumerController {
         return adminConsumer.getUsers();
     }
 
+    //signup
     @RequestMapping(value = "/signup", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public String signup(@RequestBody User user) throws Exception{
         try{
@@ -40,6 +42,7 @@ public class ConsumerController {
         }
     }
 
+    //login
     @RequestMapping(value = "/login", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public String login(@RequestBody Map<String, Object> map){
 
@@ -74,6 +77,8 @@ public class ConsumerController {
         }
 
     }
+
+    //create token
     @GetMapping("/get-token/{id}")
     String createToken(@PathVariable("id") ObjectId id){
         return tokenConsumer.createToken(id);

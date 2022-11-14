@@ -1,26 +1,33 @@
-package com.shop.service.shopService.model;
-
+package com.consumer.service.ConsumerService.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Category {
+public class Product {
 
-    private int category_id;
+    private int id;
+
     private String name;
+    private double price;
     private String description;
+    private List<Category> categories;
+
 
     @Override
     public String toString() {
         return "{" +
-                "\"category_id\":" + category_id +
+                "\"id\":" + id +
                 ", \"name\":\"" + name + "\"" +
+                ", \"price\":" + price +
                 ", \"description\":\"" + description + "\"" +
+                ", \"categories\":" + categories +
                 '}';
     }
-    
+
 }

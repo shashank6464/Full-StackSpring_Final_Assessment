@@ -47,7 +47,7 @@ public class CategoryController {
     }
 
 
-    @RequestMapping(value = "/update-category-by-id/{id}", method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/update-category-by-id/{id}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public String updateCategoryById(@PathVariable("id") int category_id, @RequestBody Map<String, Object> map) throws EntityNotFoundException, BadRequestException{
 
         if(map.size()!=1) throw new BadRequestException("PAYLOAD MALFORMED. You MUST UPDATE Only One field at a time");
@@ -62,11 +62,18 @@ public class CategoryController {
 
 
     @RequestMapping(value = "/delete-category-by-id/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public String deleteCategoryById(@PathVariable("id") int category_id) throws EntityNotFoundException {
+    public String deleteCategoryById(@PathVariable("id") int category_id) throws EntityNotFoundException, BadRequestException {
 
         if(!service.checkCategoryExistsById(category_id)) throw new EntityNotFoundException("Category with this id NOT FOUND");
 
-        return service.deleteCategoryById(category_id);
+
+        try{
+            return service.deleteCategoryById(category_id);
+        }
+        catch (Exception e){
+            throw new BadRequestException("Category Can't be deleted !! Because it is linked with some Products !!");
+        }
+
     }
 
 
@@ -76,10 +83,10 @@ public class CategoryController {
 
         if(map.size()!=1) throw new BadRequestException("PAYLOAD MALFORMED. You MUST INPUT One field at a time");
 
-        if(!PayloadValidation.createdPayloadCategoryField(map) && !map.containsKey("category_id")) throw new BadRequestException("PAYLOAD MALFORMED. Either (only) category_id or description or name MUST be PROVIDED !!!");
+        if(!PayloadValidation.createdPayloadCategoryField(map) && !map.containsKey("id")) throw new BadRequestException("PAYLOAD MALFORMED. Either (only) id or description or name MUST be PROVIDED !!!");
 
         List<Category> res;
-        if(map.containsKey("category_id")) res = service.getCategoryByField("category_id",map.get("category_id").toString());
+        if(map.containsKey("id")) res = service.getCategoryByField("id",map.get("id").toString());
         else if(map.containsKey("description")) res = service.getCategoryByField("description", map.get("description").toString());
         else res = service.getCategoryByField("name", map.get("name").toString());
 
