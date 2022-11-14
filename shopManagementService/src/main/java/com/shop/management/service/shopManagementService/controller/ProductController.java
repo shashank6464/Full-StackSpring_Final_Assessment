@@ -28,12 +28,14 @@ public class ProductController {
     CategoryService categoryService;
 
 
+    //get products
     @RequestMapping(value = "/get-products", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Product> getProduct(){
         return productService.getProducts();
     }
 
 
+    //add product
     @RequestMapping(value = "/add-product", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public Product addProduct(@RequestBody Product product) throws BadRequestException {
 
@@ -45,6 +47,7 @@ public class ProductController {
     }
 
 
+    //get product with category id, product id
     @RequestMapping(value = "/product-with-category/{product_id}/{category_id}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
     public Product assignDetails(@PathVariable("product_id") int product_id, @PathVariable("category_id") int category_id) throws  EntityNotFoundException{
 
@@ -60,6 +63,7 @@ public class ProductController {
 
 
 
+    //update product by id
     @RequestMapping(value = "/update-product-by-id/{id}", method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE)
     public String updateProductById(@PathVariable("id") int product_id, @RequestBody Map<String, Object> map) throws EntityNotFoundException, BadRequestException{
 
@@ -80,6 +84,7 @@ public class ProductController {
     }
 
 
+    //delete product by id
     @RequestMapping(value = "/delete-product-by-id/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
     public String deleteProductById(@PathVariable("id") int product_id) throws EntityNotFoundException {
 
@@ -89,6 +94,7 @@ public class ProductController {
     }
 
 
+    //get product by field
     @RequestMapping(value = "/get-product-by-field", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Product> getProductByField(@RequestBody Map<String, Object> map) throws EntityNotFoundException, BadRequestException{
 

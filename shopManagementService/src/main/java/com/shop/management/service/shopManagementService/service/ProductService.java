@@ -25,9 +25,7 @@ public class ProductService {
 
 
 
-    //--------------------------------------------------------------//
-    // Short useful services //
-
+    // short services
     public List<Product> getProducts(){
         return repository.findAll();
     }
@@ -39,9 +37,8 @@ public class ProductService {
         return repository.getProductsByName(name);
     }
 
-    //--------------------------------------------------------------//
 
-
+    //add product
     public Product addProduct(Product product){
         return repository.save(product);
     }
@@ -68,11 +65,6 @@ public class ProductService {
 
         return repository.save(product);
     }
-
-
-
-
-
 
 
 

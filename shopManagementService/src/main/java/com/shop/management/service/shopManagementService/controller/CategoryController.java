@@ -29,6 +29,7 @@ public class CategoryController {
         return "CHECK";
     }
 
+    //get all categories
     @RequestMapping(value = "/get-categories", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Category> getCategories(){
         return service.getCategories();
@@ -36,6 +37,7 @@ public class CategoryController {
 
 
 
+    //add a category
     @RequestMapping(value = "/add-category", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public Category addCategory(@RequestBody Category category) throws BadRequestException {
 
@@ -47,6 +49,7 @@ public class CategoryController {
     }
 
 
+    //update category by id
     @RequestMapping(value = "/update-category-by-id/{id}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public String updateCategoryById(@PathVariable("id") int category_id, @RequestBody Map<String, Object> map) throws EntityNotFoundException, BadRequestException{
 
@@ -61,6 +64,7 @@ public class CategoryController {
     }
 
 
+    //delete category by id
     @RequestMapping(value = "/delete-category-by-id/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
     public String deleteCategoryById(@PathVariable("id") int category_id) throws EntityNotFoundException, BadRequestException {
 
@@ -78,6 +82,7 @@ public class CategoryController {
 
 
 
+    //get category by field
     @RequestMapping(value = "/get-category-by-field", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Category> getCategoriesByField(@RequestBody Map<String, Object> map) throws EntityNotFoundException, BadRequestException{
 
