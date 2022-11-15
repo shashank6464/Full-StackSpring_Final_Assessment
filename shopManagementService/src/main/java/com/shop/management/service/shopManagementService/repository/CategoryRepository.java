@@ -14,7 +14,7 @@ import java.util.List;
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Integer> {
 
-    //--------------------UPDATE QUERIES (BY ANY FIELD) ------------------------//
+    //UPDATE QUERIES BY ANY FIELD
 
     @Modifying
     @Query("UPDATE Category c SET c.description = :description " +
@@ -30,7 +30,7 @@ public interface CategoryRepository extends JpaRepository<Category, Integer> {
 
 
 
-    //--------------------SELECT QUERIES (BY ANY FIELD) ------------------------//
+    //SELECT QUERIES BY ANY FIELD
 
     @Modifying
     @Query("SELECT c " +

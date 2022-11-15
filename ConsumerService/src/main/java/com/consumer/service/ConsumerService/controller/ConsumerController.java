@@ -61,7 +61,6 @@ public class ConsumerController {
 
             String token = createToken(new ObjectId(id));
 
-            //System.out.println(new ObjectId(id));
 
             StringBuilder response = new StringBuilder(initial_response);
             int token_index = initial_response.indexOf('}', id_index) - 4;

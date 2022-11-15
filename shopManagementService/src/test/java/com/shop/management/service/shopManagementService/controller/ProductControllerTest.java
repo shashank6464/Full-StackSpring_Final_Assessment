@@ -41,7 +41,7 @@ public class ProductControllerTest {
     private ProductRepository productRepository;
 
     @Autowired
-    private WebApplicationContext applicationContext; // autowired the configuration
+    private WebApplicationContext applicationContext;
 
 
     @Before
@@ -101,7 +101,7 @@ public class ProductControllerTest {
                 )
                 .andExpect(jsonPath("$.id").value(1))
                 .andExpect(jsonPath("$.categories[0].id").value(1))
-                .andExpect(jsonPath("$.categories[0].name").value("Electronics"))
+                .andExpect(jsonPath("$.categories[0].name").value("Electronic"))
                 .andDo(print());
     }
 
@@ -161,8 +161,6 @@ public class ProductControllerTest {
                 .andExpect(jsonPath("$[0].description").value("test_description"))
                 .andDo(print());
     }
-
-
 
 
 }

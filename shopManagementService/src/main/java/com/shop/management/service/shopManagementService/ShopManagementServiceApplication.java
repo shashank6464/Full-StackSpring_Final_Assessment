@@ -29,20 +29,28 @@ public class ShopManagementServiceApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		categoryRepository.save(new Category("Electronics", "Electronic items"));
-		categoryRepository.save(new Category("Clothing", "Clothes"));
-		categoryRepository.save(new Category("Household", "Household items"));
+
+		categoryRepository.save(new Category("Electronic", "Electronic items"));
+		categoryRepository.save(new Category("Clothing", "Clothes item"));
+		categoryRepository.save(new Category("Health", "Health items"));
+
 
 		categoryRepository.findAll().forEach(System.out::println);
 
 
-		System.out.println("----------------------------------------------------------------------------------");
+		System.out.println("***************************");
 
 
-		productRepository.save(new Product("Samsung S21", 100000, "5G Mobile",null));
-		productRepository.save(new Product("Iphone 14+", 80000, "IOS 16 Mobile", null));
-		productRepository.save(new Product("IKEA Table", 10000, "5ft Table", null));
-		productRepository.save(new Product("Puma Shirt", 3000, "Red M", null));
+		productRepository.save(new Product("Oneplus 9", 50000, "4G Phone",null));
+		productRepository.save(new Product("Oneplus 10", 60000, "4G Phone", null));
+		productRepository.save(new Product("Oneplus 6", 30000, "4G Phone", null));
+		productRepository.save(new Product("Jockey T-Shirt", 1500, "Grey", null));
+		productRepository.save(new Product("Jockey Pant", 1000, "Black", null));
+		productRepository.save(new Product("Garnier Facewash", 80, "100ml", null));
+		productRepository.save(new Product("Nivea Facewash", 100, "100ml", null));
+		productRepository.save(new Product("Nivea Cream", 200, "50ml", null));
+
+
 
 		productRepository.findAll().forEach(System.out::println);
 

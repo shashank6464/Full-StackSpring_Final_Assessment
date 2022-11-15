@@ -26,8 +26,8 @@ public class CategoryService {
 
 
 
-    //--------------------------------------------------------------//
-    // Short useful services //
+
+    // Short useful services
 
     public List<Category> getCategories(){
         return repository.findAll();
@@ -47,7 +47,7 @@ public class CategoryService {
         return repository.getCategoriesByName(name);
     }
 
-    //--------------------------------------------------------------//
+    //****************************
 
 
 
@@ -78,7 +78,7 @@ public class CategoryService {
 
 
 
-    //----------- GET Category BY ANY FIELD ------------//
+    // GET Category By Any Field
     @Transactional
     public List<Category> getCategoryByField(String field, String value){
 
@@ -97,5 +97,6 @@ public class CategoryService {
         if(resList.size()>0) return resList;
         return null;
     }
+
 
 }

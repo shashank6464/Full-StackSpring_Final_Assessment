@@ -45,8 +45,6 @@ public class ShopController {
 
     @RequestMapping(value = "/products", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public String getProductByField(@RequestBody Map<String, Object> map)  {
-//        feign.FeignException$NotFound: [404] during [POST] to [http://shopManagement-service/product/get-product-by-field]
-//        [ProductConsumer#getProductByField(Map)]: [{"errorCode":404,"message":"NO SUCH Product(s) Found"}]
 
         try{
             return productConsumer.getProductByField(map).toString();
@@ -58,8 +56,6 @@ public class ShopController {
             System.out.println(e.getMessage());
             return errorResponse.substring(index, errorResponse.length()-1);
         }
-
-
 
     }
 

@@ -14,7 +14,7 @@ import java.util.List;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 
-    //--------------------UPDATE QUERIES (BY ANY FIELD) ------------------------//
+    //UPDATE QUERIES BY ANY FIELD
 
     @Modifying
     @Query("UPDATE Product p SET p.description = :description " +
@@ -37,7 +37,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
 
 
-    //--------------------SELECT QUERIES (BY ANY FIELD) ------------------------//
+    //SELECT QUERIES BY ANY FIELD
     @Modifying
     @Query("SELECT p " +
             "FROM Product p " +

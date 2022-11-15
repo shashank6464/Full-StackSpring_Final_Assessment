@@ -111,7 +111,7 @@ public class CategoryControllerTest {
     @Test
     public void verfiygetCategoryByField() throws Exception{
         Map<String, Object> map = new HashMap<>();
-        map.put("name", "Electronics");
+        map.put("name", "Electronic");
 
         // checking for the first category
         mockMvc.perform(MockMvcRequestBuilders.post("/category/get-category-by-field")
@@ -120,7 +120,7 @@ public class CategoryControllerTest {
                         .accept(MediaType.APPLICATION_JSON)
                 )
                 .andExpect(jsonPath("$[0].id").value(1))
-                .andExpect(jsonPath("$[0].name").value("Electronics"))
+                .andExpect(jsonPath("$[0].name").value("Electronic"))
                 .andExpect(jsonPath("$[0].description").value("Electronic items"))
                 .andDo(print());
     }

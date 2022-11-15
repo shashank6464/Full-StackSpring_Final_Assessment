@@ -22,30 +22,6 @@ public class RestExceptionHandler {
     }
 
 
-//    // Id must not present
-//    @ExceptionHandler(IdPresentException.class)
-//    public ResponseEntity<ErrorResponse> exceptionHandlerIdNotPresent(Exception e){
-//
-//        ErrorResponse errorResponse = new ErrorResponse();
-//
-//        errorResponse.setErrorCode(HttpStatus.BAD_REQUEST.value());
-//        errorResponse.setMessage(e.getMessage());
-//
-//        return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.BAD_REQUEST);
-//    }
-//
-//    // Password Match Exception
-//    @ExceptionHandler(PasswordMatchException.class)
-//    public ResponseEntity<ErrorResponse> exceptionHandlerPasswordMatch(Exception e){
-//
-//        ErrorResponse errorResponse = new ErrorResponse();
-//
-//        errorResponse.setErrorCode(HttpStatus.BAD_REQUEST.value());
-//        errorResponse.setMessage(e.getMessage());
-//
-//        return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.BAD_REQUEST);
-//    }
-
     // Any Bad Request Exception
     @ExceptionHandler(BadRequestException.class)
     public ResponseEntity<ErrorResponse> exceptionHandlerBadRequest(Exception e){

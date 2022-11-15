@@ -52,11 +52,6 @@ public class UserService {
 
         List<User> foundUsers =  getUserByUserName(username);
 
-//        if(foundUsers.isEmpty()){
-//            return "{\n" +
-//                    "\"message\":"+"\" Authentication Failed !!! (USER NOT FOUND) \",\n"+
-//                    "}";
-//        }
 
 //        else
         if(!foundUsers.get(0).getPassword().equals(password)){
